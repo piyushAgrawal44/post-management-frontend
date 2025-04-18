@@ -54,7 +54,7 @@ const Posts = () => {
                 <span className="font-medium text-blue-500">By:</span>{" "}
                 {post?.userId?.emailOrUserName || "Unknown"}
               </div>
-              <Link  to={`/single-post/${post?._id}`} className="text-sm hover:underline  text-gray-500">
+              <Link  to={`/single-post/${post?._id}`}  state={post} className="text-sm hover:underline  text-gray-500">
                 <span className="font-medium text-blue-500">Comments:</span>{" "}
                 {post?.comments}
               </Link>
