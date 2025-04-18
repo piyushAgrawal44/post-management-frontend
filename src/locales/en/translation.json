@@ -1,0 +1,63 @@
+{
+  "nav": {
+    "features": "Features",
+    "about": "About",
+    "login": "Login",
+    "get_started": "Get Started",
+    "language_toggle": "العربية"
+  },
+  "hero": {
+    "title": "Share Your Ideas Securely",
+    "subtitle": "A modern, secure platform to publish your thoughts and engage with the community",
+    "cta_primary": "Get Started",
+    "cta_secondary": "Learn More"
+  },
+  "features": {
+    "title": "Platform Features",
+    "subtitle": "Everything you need to share your ideas and interact with content securely and flexibly",
+    "secureAuth": {
+      "title": "Secure Authentication",
+      "description": "JWT-based login system to protect your accounts and personal information"
+    },
+    "contentSharing": {
+      "title": "Create & Share Content",
+      "description": "Easily create and share your posts with advanced formatting capabilities"
+    },
+    "comments": {
+      "title": "Moderated Comments",
+      "description": "Interact through comments that are reviewed to maintain a safe environment"
+    },
+    "arabicSupport": {
+      "title": "Arabic Support",
+      "description": "Full support for Arabic language and RTL formatting for a seamless user experience"
+    }
+  },
+  "platform_features": {
+    "title": "Platform Features",
+    "subtitle": "Everything you need to share your ideas and interact with content securely and flexibly",
+    "secureAuth": {
+      "title": "Secure Authentication",
+      "description": "JWT-based login system to protect your accounts and personal information"
+    },
+    "contentSharing": {
+      "title": "Create & Share Content",
+      "description": "Easily create and share your posts with advanced formatting capabilities"
+    },
+    "comments": {
+      "title": "Moderated Comments",
+      "description": "Interact through comments that are reviewed to maintain a safe environment"
+    },
+    "arabicSupport": {
+      "title": "Arabic Support",
+      "description": "Full support for Arabic language and RTL formatting for a seamless user experience"
+    }
+  },
+  "about": {
+    "title": "About the Platform",
+    "subtitle": "An innovative platform that combines ease of use and security for exchanging ideas and content",
+    "description": "This platform was developed using the latest technologies to ensure a smooth and secure user experience. It provides users with the ability to create and share their own content, interact with others' content through comments that are reviewed to maintain a positive and safe environment. The platform also fully supports Arabic language with RTL formatting to ensure an optimal user experience for Arabic-speaking users."
+  },
+  "footer": {
+    "rights": "All rights reserved."
+  }
+}

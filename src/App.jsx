@@ -10,6 +10,7 @@ import Navbar from "./components/layouts/Navbar";
 const Login = lazy(() => import("./pages/Auth/Login"));
 const Signup = lazy(() => import("./pages/Auth/Signup"));
 const Home = lazy(() => import("./pages/Home/Home"));
+const Dashboard = lazy(() => import("./pages/Dashboard/Home"));
 const AllPost = lazy(() => import("./pages/Posts/Posts"));
 const SinglePost = lazy(() => import("./pages/Posts/SinglePost"));
 
@@ -31,7 +32,8 @@ const App = () => {
         fallback={<div className="text-center mt-20 text-lg">Loading...</div>}
       >
         <Routes>
-          <Route path="" element={<Home />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/all-posts" element={<AllPost />} />
           <Route path="/single-post/:id" element={<SinglePost />} />
 

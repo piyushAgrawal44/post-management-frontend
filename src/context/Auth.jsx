@@ -73,7 +73,7 @@ export const AuthProvider = ({ children }) => {
         setLoginAdminLoad(false);
         sessionStorage.setItem("token", data?.data?.token);
         setToken(data?.data?.token);
-        navigate("/");
+        navigate("/dashboard");
       }
     } catch (error) {
       setLoginAdminLoad(false);
