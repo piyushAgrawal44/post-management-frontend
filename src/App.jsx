@@ -1,35 +1,43 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { lazy, Suspense, useEffect } from "react";
+import { Route, Routes } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 
-function App() {
-  const [count, setCount] = useState(0)
+import "./index.css";
+import { useAuth } from "./hook/Auth";
+
+import Navbar from "./components/Navbar";
+
+const Login = lazy(() => import("./pages/Auth/Login"));
+const Signup = lazy(() => import("./pages/Auth/Signup"));
+const Home = lazy(() => import("./pages/Home/Home"));
+
+const App = () => {
+  const { token } = useAuth();
+
+  useEffect(() => {
+    if (token) {
+      // myProfileApi();
+    }
+  }, [token]);
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <div className="w-full h-[100vh]">
+      <ToastContainer />
+      
+        <Navbar />
+        <Suspense
+          fallback={<div className="text-center mt-20 text-lg">Loading...</div>}
+        >
+          <Routes>
+            <Route path="" element={<Home />} />
 
-export default App
+            {/* route protect if user is login */}
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
+          </Routes>
+        </Suspense>
+    </div>
+  );
+};
+
+export default App;
