@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useAuth } from "../../hook/Auth";
+import { useAuth } from "../../context/Auth";
 import Loader from "../../ui/Loader";
 
 const Login = () => {

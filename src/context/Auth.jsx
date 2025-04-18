@@ -83,8 +83,8 @@ export const AuthProvider = ({ children }) => {
 
   const myProfileApi = async () => {
     try {
-      const { data } = await axiosInstance.get(`/myProfile`);
-      setUserState(data?.user);
+      const { data } = await axiosInstance.get(`/auth/my-profile`);
+      setUserState(data?.data);
     } catch (error) {
       console.log("error", error);
     }
