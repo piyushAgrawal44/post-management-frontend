@@ -16,6 +16,10 @@ export const PostProvider = ({ children }) => {
   const [allPostLoading, setAllPostLoading] = useState(false);
   const [posts, setPosts] = useState([]);
   const [comments, setComments] = useState([]);
+  const [commentCount, setCommentCount] = useState([]);
+
+  const [page, setPage] = useState(1);
+  const [hasMore, setHasMore] = useState(true);
 
   // for posts
   const createPostApi = async (title, content) => {
@@ -84,14 +88,27 @@ export const PostProvider = ({ children }) => {
       console.log("error", error);
     }
   };
-  const getCommentsApi = async (id, page, limit) => {
+  const getCommentsApi = async (id, pageNum, limit) => {
     try {
       setAllPostLoading(true);
       const { data } = await axiosInstance.get(
-        `/posts/${id}/all-comments?page=${page}&limit=${limit}`
+        `/posts/${id}/all-comments?page=${pageNum}&limit=${limit}`
       );
+      if (!data?.data?.allComments?.length) {
+        setPage((prev) => prev);
+        setHasMore(false);
+        setAllPostLoading(false);
+      }
       if (data) {
-        setComments(data?.data);
+        setCommentCount(data?.data?.commentCount);
+        setComments((prev) => {
+          const existingIds = new Set(prev.map((comment) => comment._id));
+          const newUniqueComments = data?.data?.allComments.filter(
+            (comment) => !existingIds.has(comment._id)
+          );
+          return [...prev, ...newUniqueComments];
+        });
+        setPage((prev) => prev + 1);
         setAllPostLoading(false);
       }
     } catch (error) {
@@ -102,8 +119,11 @@ export const PostProvider = ({ children }) => {
 
   const all_states = {
     loading,
+    hasMore,
+    page,
     allPostLoading,
     comments,
+    commentCount,
     posts,
   };
   const all_states_update_func = {
