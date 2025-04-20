@@ -69,6 +69,7 @@ const SinglePost = () => {
 
   useEffect(() => {
     if (id) {
+      setComments([])
       getCommentsApi(id, page, 10);
     }
 
