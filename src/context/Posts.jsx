@@ -128,6 +128,7 @@ export const PostProvider = ({ children }) => {
   };
   const all_states_update_func = {
     setComments,
+    setPage,
   };
 
   const all_api_controllers = {
