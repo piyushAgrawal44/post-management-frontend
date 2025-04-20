@@ -91,9 +91,11 @@ export const PostProvider = ({ children }) => {
   const getCommentsApi = async (id, pageNum, limit) => {
     try {
       setAllPostLoading(true);
+      setLoading(true);
       const { data } = await axiosInstance.get(
         `/posts/${id}/all-comments?page=${pageNum}&limit=${limit}`
       );
+      setLoading(false);
       if (!data?.data?.allComments?.length) {
         setPage((prev) => prev);
         setHasMore(false);
@@ -125,10 +127,10 @@ export const PostProvider = ({ children }) => {
     comments,
     commentCount,
     posts,
+    setPage
   };
   const all_states_update_func = {
     setComments,
-    setPage,
   };
 
   const all_api_controllers = {
